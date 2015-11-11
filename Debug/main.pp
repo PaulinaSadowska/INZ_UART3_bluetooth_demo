@@ -13,6 +13,10 @@ main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/uart.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/inc/hw_ints.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/interrupt.h
 main.obj: ../UART3_messages_control.h
+main.obj: ../current_sensing.h
+main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/debug.h
+main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/adc.h
+main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/timer.h
 
 ../main.c: 
 C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/include/stdint.h: 
@@ -27,3 +31,7 @@ C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/uart.h:
 C:/ti/TivaWare_C_Series-2.1.1.71/inc/hw_ints.h: 
 C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/interrupt.h: 
 ../UART3_messages_control.h: 
+../current_sensing.h: 
+C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/debug.h: 
+C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/adc.h: 
+C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/timer.h: 

@@ -16,19 +16,48 @@
 #include "inc/hw_ints.h"
 #include "driverlib/interrupt.h"
 
-//macros of data recieved from uart
+/** macros of data recieved from uart **/
+
+//special characters
 #define START_BYTE '{'
 #define STOP_BYTE '}'
+
+//possible move directions
 #define MOVE_LEFT 'L'
 #define MOVE_RIGHT 'R'
 #define MOVE_FORWARD 'F'
 #define MOVE_BACK 'B'
-#define MESSAGE_LENGTH 3 //length of the message
+#define DONT_MOVE 'H'
 
-void WriteCharToBuffer(unsigned char character);
+//indexes on in message for informations
+//in message
+#define INDEX_DIRECTION 1
+#define INDEX_VELOCITY 2
+//out message
+#define INDEX_START_BYTE 0
+#define INDEX_CURRENT_1 1
+#define INDEX_CURRENT_2 5
+#define INDEX_STOP_BYTE 9
 
-extern unsigned char inBuffer[MESSAGE_LENGTH]; //buffor to store readed message
+
+ //length of the message
+#define MESSAGE_LENGTH_IN 6 //input message length
+#define MESSAGE_LENGTH_OUT 10 //output message length
+
+extern unsigned char inBuffer[MESSAGE_LENGTH_IN]; //buffor to store readed message
+extern unsigned char outBuffer[MESSAGE_LENGTH_OUT]; //buffor to store readed message
 extern unsigned int i; //variable to manage char position in inBuffer array
 extern bool messageInProgress;
+
+//data used on the outside
+extern char direction;
+extern int velocity;
+extern bool UARTDataChanged;
+
+//gets character and create incoming void WriteCharToBuffer(unsigned char character);message in inBuffer
+void WriteCharToBuffer(unsigned char character);
+void DecodeMessage();
+void CodeMessage();
+void SendMessage();
 
 #endif /* UART3_MESSAGES_CONTROL_H_ */

@@ -8,6 +8,7 @@
 
 #include "UART3_conf.h"
 #include "UART3_messages_control.h"
+#include "current_sensing.h"
 
 int main(void) {
 	
@@ -16,6 +17,9 @@ int main(void) {
 
     //UART3 init (Bluetooth)
     UART3_Init();
+
+    //ADC channels init
+    CurrentSensing_Init();
 
     while (1)
     { }

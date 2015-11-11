@@ -12,6 +12,7 @@ GEN_CMDS__FLAG :=
 ORDERED_OBJS += \
 "./UART3_conf.obj" \
 "./UART3_messages_control.obj" \
+"./current_sensing.obj" \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib" \
@@ -153,8 +154,8 @@ INZ_UART3_bluetooth_demo.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "UART3_conf.pp" "UART3_messages_control.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
-	-$(RM) "UART3_conf.obj" "UART3_messages_control.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "UART3_conf.pp" "UART3_messages_control.pp" "current_sensing.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
+	-$(RM) "UART3_conf.obj" "UART3_messages_control.obj" "current_sensing.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
