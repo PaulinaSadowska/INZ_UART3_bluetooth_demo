@@ -31,6 +31,4 @@ void UART3_Init()
     * 			and a second character has not been received within a 32-bit period.
     */
     UARTIntEnable(UART3_BASE, UART_INT_RX | UART_INT_RT);
-
-
 }

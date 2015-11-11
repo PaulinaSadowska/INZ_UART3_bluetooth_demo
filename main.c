@@ -5,72 +5,14 @@
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
 #include "driverlib/sysctl.h"
-#include "driverlib/uart.h"
-#include "inc/hw_ints.h"
-#include "driverlib/interrupt.h"
 
 #include "UART3_conf.h"
-
-//macros of data recieved from uart
-#define START_BYTE '{'
-#define STOP_BYTE '}'
-#define MOVE_LEFT 'L'
-#define MOVE_RIGHT 'R'
-#define MOVE_FORWARD 'F'
-#define MOVE_BACK 'B'
-#define MESSAGE_LENGTH 3 //length of the message
-
-void LEDBlink(void);
-void WriteCharToBuffer(unsigned char character);
-
-unsigned char inBuffer[MESSAGE_LENGTH]; //buffor to store readed message
-unsigned int i=0; //variable to manage char position in inBuffer array
-bool messageInProgress = false;
-
-void UARTIntHandler(void)
-{
-    uint32_t ui32Status;
-    unsigned char temp;
-    ui32Status = UARTIntStatus(UART3_BASE, true); 	//get interrupt status
-    UARTIntClear(UART3_BASE, ui32Status); 			//clear the asserted interrupts
-    while(UARTCharsAvail(UART3_BASE))				//loop while there are chars
-    {
-        temp = UARTCharGetNonBlocking(UART3_BASE); //gets character
-        WriteCharToBuffer(temp);  //check if character is part of frame and write it to buffer
-        LEDBlink();
-        //UARTCharPutNonBlocking(UART3_BASE,'a');
-    }
-}
-
-void WriteCharToBuffer(unsigned char character)
-{
-    if(character == START_BYTE)
-    {
-    	i=0;
-    	messageInProgress = true;
-    	inBuffer[i] = character;
-    }
-    else if(messageInProgress && character == STOP_BYTE)
-    {
-    	i++;
-    	messageInProgress = false;
-    	inBuffer[i] = temp;
-    }
-    else if(messageInProgress)
-    {
-    	i++;
-    	inBuffer[i] = character;
-    }
-}
+#include "UART3_messages_control.h"
 
 int main(void) {
 	
 	 //clock runs on 40Mhz
 	SysCtlClockSet(SYSCTL_SYSDIV_4 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
-
-    //LED init
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2);
 
     //UART3 init (Bluetooth)
     UART3_Init();
@@ -80,9 +22,3 @@ int main(void) {
 
 }
 
-void LEDBlink(void)
-{
-    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, GPIO_PIN_2); //blink LED
-    SysCtlDelay(SysCtlClockGet() / (1000 * 3)); //delay ~1 msec
-    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, 0); //turn off LED
-}
