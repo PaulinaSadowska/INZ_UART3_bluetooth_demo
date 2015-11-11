@@ -21,19 +21,45 @@
 #define MESSAGE_LENGTH 3 //length of the message
 
 void LEDBlink(void);
+void WriteCharToBuffer(unsigned char character);
 
 unsigned char inBuffer[MESSAGE_LENGTH]; //buffor to store readed message
 unsigned int i=0; //variable to manage char position in inBuffer array
+bool messageInProgress = false;
 
 void UARTIntHandler(void)
 {
     uint32_t ui32Status;
+    unsigned char temp;
     ui32Status = UARTIntStatus(UART3_BASE, true); 	//get interrupt status
     UARTIntClear(UART3_BASE, ui32Status); 			//clear the asserted interrupts
     while(UARTCharsAvail(UART3_BASE))				//loop while there are chars
     {
-        UARTCharPutNonBlocking(UART3_BASE, UARTCharGetNonBlocking(UART3_BASE)); //echo character
+        temp = UARTCharGetNonBlocking(UART3_BASE); //gets character
+        WriteCharToBuffer(temp);  //check if character is part of frame and write it to buffer
         LEDBlink();
+        //UARTCharPutNonBlocking(UART3_BASE,'a');
+    }
+}
+
+void WriteCharToBuffer(unsigned char character)
+{
+    if(character == START_BYTE)
+    {
+    	i=0;
+    	messageInProgress = true;
+    	inBuffer[i] = character;
+    }
+    else if(messageInProgress && character == STOP_BYTE)
+    {
+    	i++;
+    	messageInProgress = false;
+    	inBuffer[i] = temp;
+    }
+    else if(messageInProgress)
+    {
+    	i++;
+    	inBuffer[i] = character;
     }
 }
 
