@@ -9,6 +9,7 @@
 #include "UART3_conf.h"
 #include "UART3_messages_control.h"
 #include "current_sensing.h"
+#include "TIMER_sending_data.h"
 
 int main(void) {
 	
@@ -20,9 +21,13 @@ int main(void) {
 
     //ADC channels init
     CurrentSensing_Init();
+    //Initialize Timer to periodically send data do Android
+    Timer1_Init(1); //frequency 1Hz
 
     while (1)
     { }
 
 }
+
+
 

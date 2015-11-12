@@ -17,6 +17,7 @@ main.obj: ../current_sensing.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/debug.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/adc.h
 main.obj: C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/timer.h
+main.obj: ../TIMER_sending_data.h
 
 ../main.c: 
 C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/include/stdint.h: 
@@ -35,3 +36,4 @@ C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/interrupt.h:
 C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/debug.h: 
 C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/adc.h: 
 C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/timer.h: 
+../TIMER_sending_data.h: 

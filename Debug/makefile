@@ -10,6 +10,7 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./TIMER_sending_data.obj" \
 "./UART3_conf.obj" \
 "./UART3_messages_control.obj" \
 "./current_sensing.obj" \
@@ -154,8 +155,8 @@ INZ_UART3_bluetooth_demo.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "UART3_conf.pp" "UART3_messages_control.pp" "current_sensing.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
-	-$(RM) "UART3_conf.obj" "UART3_messages_control.obj" "current_sensing.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "TIMER_sending_data.pp" "UART3_conf.pp" "UART3_messages_control.pp" "current_sensing.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
+	-$(RM) "TIMER_sending_data.obj" "UART3_conf.obj" "UART3_messages_control.obj" "current_sensing.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

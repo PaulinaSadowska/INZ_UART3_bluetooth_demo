@@ -32,12 +32,12 @@
 //indexes on in message for informations
 //in message
 #define INDEX_DIRECTION 1
-#define INDEX_VELOCITY 2
+#define INDEX_VELOCITY  2
 //out message
 #define INDEX_START_BYTE 0
-#define INDEX_CURRENT_1 1
-#define INDEX_CURRENT_2 5
-#define INDEX_STOP_BYTE 9
+#define INDEX_CURRENT_1  1
+#define INDEX_CURRENT_2  5
+#define INDEX_STOP_BYTE  9
 
 
  //length of the message

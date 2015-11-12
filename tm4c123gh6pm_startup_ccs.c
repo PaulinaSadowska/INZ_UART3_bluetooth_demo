@@ -42,8 +42,9 @@ static void IntDefaultHandler(void);
 //*****************************************************************************
 extern void _c_int00(void);
 
-void UARTIntHandler(void);
-extern void ADC0IntHandler(void);
+void UARTIntHandler(void); 			//reads data from UART buffer
+extern void ADC0IntHandler(void); 	//reads ADC data and updates ui32CurrentMotorRight/Left
+void Timer1IntHandler(void); 		//sends sensor measurements to Android
 
 //*****************************************************************************
 //
@@ -101,13 +102,13 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // PWM Generator 2
     IntDefaultHandler,                      // Quadrature Encoder 0
     IntDefaultHandler,                      // ADC Sequence 0
-	ADC0IntHandler,                     // ADC Sequence 1
+	ADC0IntHandler,                     	// ADC Sequence 1
     IntDefaultHandler,                      // ADC Sequence 2
     IntDefaultHandler,                      // ADC Sequence 3
     IntDefaultHandler,                      // Watchdog timer
     IntDefaultHandler,                      // Timer 0 subtimer A
     IntDefaultHandler,                      // Timer 0 subtimer B
-    IntDefaultHandler,                      // Timer 1 subtimer A
+	Timer1IntHandler,                      // Timer 1 subtimer A
     IntDefaultHandler,                      // Timer 1 subtimer B
     IntDefaultHandler,                      // Timer 2 subtimer A
     IntDefaultHandler,                      // Timer 2 subtimer B

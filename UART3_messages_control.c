@@ -32,8 +32,6 @@ void UARTIntHandler(void)
         WriteCharToBuffer(temp);  //check if character is part of frame and write it to buffer
         DecodeMessage();
        // LEDBlink();
-        CodeMessage(13, 9876); //create some mock data
-        SendMessage(); //sends outBuffer
     }
 	//UARTCharPutNonBlocking(UART3_BASE,'G');
 }
@@ -41,7 +39,7 @@ void UARTIntHandler(void)
 void SendMessage()
 {
 	int j;
-	for(j=0; i<MESSAGE_LENGTH_OUT; i++)
+	for(j=0; j<MESSAGE_LENGTH_OUT; j++)
 	{
 		UARTCharPutNonBlocking(UART3_BASE,outBuffer[j]);
 	}
@@ -74,9 +72,6 @@ void CodeMessage(int current1, int current2)
 	outBuffer[INDEX_CURRENT_2+2] = current2/10+48;
 	current2 = current2%10;
 	outBuffer[INDEX_CURRENT_2+3] = current2+48;
-
-	//TODO when coded message should be send? I cant use another library's field inside
-	// ideally message should be send on every ADC interrupt. HOOOW?
 }
 
 void WriteCharToBuffer(unsigned char character)
