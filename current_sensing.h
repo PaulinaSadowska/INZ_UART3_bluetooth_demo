@@ -32,14 +32,14 @@
 	 */
 	uint32_t ui32ADC0Value[4]; //data buffer
 
-	volatile uint32_t ui32ADC0ValueAvg_CH0; //average value readed from PE3
-	volatile uint32_t ui32ADC0ValueAvg_CH1;	//average value readed from PE2
+	volatile uint32_t ui32ADC0ValueAvg_CH4; //average value readed from PD3
+	volatile uint32_t ui32ADC0ValueAvg_CH5;	//average value readed from PD2
 
-	volatile uint32_t ui32VoltageMotorLeft; //voltage on channel 0 (PE3)
-	volatile uint32_t ui32VoltageMotorRight; //voltage on channel 1 (PE2)
+	volatile uint32_t ui32VoltageMotorLeft; //voltage on channel 4 (PD3)
+	volatile uint32_t ui32VoltageMotorRight; //voltage on channel 5 (PD2)
 
-	volatile uint32_t ui32CurrentMotorLeft; //current on channel 0 (PE3)
-	volatile uint32_t ui32CurrentMotorRight; //current on channel 1 (PE2)
+	volatile uint32_t ui32CurrentMotorLeft; //current on channel 4 (PD3)
+	volatile uint32_t ui32CurrentMotorRight; //current on channel 5 (PD2)
 
 
     /*
@@ -51,7 +51,7 @@
     /*
 	* Initialize ADC0 sequencer 1
 	* sequencer 1 gets 4 samples (averaged)
-	* samples 0 and 1 from PE3, samples 2, 3 from PE2
+	* samples 0 and 1 from PD3, samples 2, 3 from PD2
 	* it calculates average voltage and store it in ui32VoltageMotorRight/Left
 	* it also calculate it to get ui32CurrentMotorRight/Left
 	* (results are stored in this variables)

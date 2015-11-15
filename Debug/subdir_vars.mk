@@ -7,10 +7,10 @@ CMD_SRCS += \
 ../tm4c123gh6pm.cmd 
 
 LIB_SRCS += \
-F:/Apps/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib 
+C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib 
 
 C_SRCS += \
-../MotorControl.c \
+D:/Library/Documents/GitHub/PracaDyplomowa_BibliotekiTM4C123G/MotorControl.c \
 ../TIMER_sending_data.c \
 ../UART3_conf.c \
 ../UART3_messages_control.c \
@@ -55,7 +55,7 @@ OBJS__QUOTED += \
 "tm4c123gh6pm_startup_ccs.obj" 
 
 C_SRCS__QUOTED += \
-"../MotorControl.c" \
+"D:/Library/Documents/GitHub/PracaDyplomowa_BibliotekiTM4C123G/MotorControl.c" \
 "../TIMER_sending_data.c" \
 "../UART3_conf.c" \
 "../UART3_messages_control.c" \
