@@ -49,15 +49,32 @@ extern unsigned char outBuffer[MESSAGE_LENGTH_OUT]; //buffor to store readed mes
 extern unsigned int i; //variable to manage char position in inBuffer array
 extern bool messageInProgress;
 
+/* New data types */
+typedef enum DirectionType
+{
+	Forward,
+	Backward,
+	Left,
+	Right,
+	Stop,
+} Direction;
+
 //data used on the outside
-extern char direction;
-extern int velocity;
+// TODO: Change direction for enum typedef DIR{} Direction;
+extern Direction direction;
+
+extern uint32_t velocity;
 extern bool UARTDataChanged;
+
+//EventHandler
+void(*UartDataChangedEventHandler)(void);
 
 //gets character and create incoming void WriteCharToBuffer(unsigned char character);message in inBuffer
 void WriteCharToBuffer(unsigned char character);
 void DecodeMessage();
 void CodeMessage();
 void SendMessage();
+void OnUartDataChangedEvent();
+void UARTDataChangedSubscribe(void(*uartDataChangedEventHandler)(void));
 
 #endif /* UART3_MESSAGES_CONTROL_H_ */

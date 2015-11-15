@@ -26,9 +26,25 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>MotorControl.c</name>
+			<type>1</type>
+			<locationURI>GITHUB_DIR/PracaDyplomowa_BibliotekiTM4C123G/MotorControl.c</locationURI>
+		</link>
+		<link>
+			<name>MotorControl.h</name>
+			<type>1</type>
+			<locationURI>GITHUB_DIR/PracaDyplomowa_BibliotekiTM4C123G/MotorControl.h</locationURI>
+		</link>
+		<link>
 			<name>driverlib.lib</name>
 			<type>1</type>
 			<locationURI>TIVAWARE_INSTALL/driverlib/ccs/Debug/driverlib.lib</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>GITHUB_DIR</name>
+			<value>file:/D:/Library/Documents/GitHub</value>
+		</variable>
+	</variableList>
 </projectDescription>

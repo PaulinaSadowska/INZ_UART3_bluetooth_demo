@@ -14,8 +14,8 @@ unsigned int i = 0; //variable to manage char position in inBuffer array
 bool messageInProgress = false;
 
 //data used on the outside
-char direction = 'H';
-int velocity = 0;
+Direction direction = Stop;
+uint32_t velocity = 0;
 bool UARTDataChanged = false;
 
 
@@ -30,8 +30,7 @@ void UARTIntHandler(void)
     {
         temp = UARTCharGetNonBlocking(UART3_BASE); //gets character
         WriteCharToBuffer(temp);  //check if character is part of frame and write it to buffer
-        DecodeMessage();
-       // LEDBlink();
+
     }
 	//UARTCharPutNonBlocking(UART3_BASE,'G');
 }
@@ -45,11 +44,38 @@ void SendMessage()
 	}
 }
 
+void UARTDataChangedSubscribe(void(*uartDataChangedEventHandler)(void))
+{
+	UartDataChangedEventHandler = uartDataChangedEventHandler;
+}
+
+void OnUartDataChangedEvent()
+{
+	UartDataChangedEventHandler();
+}
+
 void DecodeMessage()
 {
-	direction = inBuffer[INDEX_DIRECTION];
+	switch(inBuffer[INDEX_DIRECTION])
+	{
+	case 'H':
+		direction = Stop;
+		break;
+	case 'F':
+		direction = Forward;
+		break;
+	case 'B':
+		direction = Backward;
+		break;
+	case 'L':
+		direction = Left;
+		break;
+	case 'R':
+		direction = Right;
+		break;
+	}
 	velocity = (inBuffer[INDEX_VELOCITY]-48)*100 + (inBuffer[INDEX_VELOCITY+1]-48)*10 + (inBuffer[INDEX_VELOCITY+2]-48);
-	UARTDataChanged = true;
+	OnUartDataChangedEvent();
 }
 
 void CodeMessage(int current1, int current2)
@@ -86,6 +112,7 @@ void WriteCharToBuffer(unsigned char character)
     {
     	i++;
     	messageInProgress = false;
+    	DecodeMessage();
     	inBuffer[i] = character;
     }
     else if(messageInProgress)

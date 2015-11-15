@@ -35,6 +35,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.GCC.1428739346" name="Enable support for GCC extensions (DEPRECATED) (--gcc)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.GCC" value="true" valueType="boolean"/>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.DEFINE.1573579257" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="ccs=&quot;ccs&quot;"/>
+									<listOptionValue builtIn="false" value="TARGET_IS_BLIZZARD_RB1"/>
 									<listOptionValue builtIn="false" value="PART_TM4C123GH6PM"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.DEBUGGING_MODEL.355622051" name="Debugging model" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.DEBUGGING_MODEL.SYMDEBUG__DWARF" valueType="enumerated"/>
@@ -48,9 +49,7 @@
 									<listOptionValue builtIn="false" value="&quot;${TIVAWARE_INSTALL}&quot;"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.LITTLE_ENDIAN.1532352364" name="Little endian code [See 'General' page to edit] (--little_endian, -me)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.LITTLE_ENDIAN" value="true" valueType="boolean"/>
-								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.UNDEFINE.1601964938" name="Undefine NAME (--undefine, -U)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.UNDEFINE" valueType="stringList">
-									<listOptionValue builtIn="false" value="PART_TM4C123GH6PM"/>
-								</option>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.UNDEFINE.1601964938" name="Undefine NAME (--undefine, -U)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compilerID.UNDEFINE" valueType="stringList"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__C_SRCS.919269593" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__CPP_SRCS.1842132547" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__ASM_SRCS.1725034764" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.9.compiler.inputType__ASM_SRCS"/>

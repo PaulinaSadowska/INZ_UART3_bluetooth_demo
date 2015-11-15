@@ -4,19 +4,20 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS
+CG_TOOL_ROOT := F:/Apps/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./MotorControl.obj" \
 "./TIMER_sending_data.obj" \
 "./UART3_conf.obj" \
 "./UART3_messages_control.obj" \
 "./current_sensing.obj" \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
-"C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib" \
+"F:/Apps/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -l"libc.a" \
@@ -142,21 +143,21 @@ all: INZ_UART3_bluetooth_demo.out
 INZ_UART3_bluetooth_demo.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -g --gcc --undefine=PART_TM4C123GH6PM --define=ccs="ccs" --define=PART_TM4C123GH6PM --display_error_number --diag_wrap=off --diag_warning=225 --abi=eabi -z -m"INZ_UART3_bluetooth_demo.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/include" --reread_libs --display_error_number --diag_wrap=off --warn_sections --xml_link_info="INZ_UART3_bluetooth_demo_linkInfo.xml" --rom_model -o "INZ_UART3_bluetooth_demo.out" $(ORDERED_OBJS)
+	"F:/Apps/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me -g --gcc --define=ccs="ccs" --define=TARGET_IS_BLIZZARD_RB1 --define=PART_TM4C123GH6PM --display_error_number --diag_wrap=off --diag_warning=225 --abi=eabi -z -m"INZ_UART3_bluetooth_demo.map" --heap_size=0 --stack_size=512 -i"F:/Apps/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/lib" -i"F:/Apps/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/include" --reread_libs --display_error_number --diag_wrap=off --warn_sections --xml_link_info="INZ_UART3_bluetooth_demo_linkInfo.xml" --rom_model -o "INZ_UART3_bluetooth_demo.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 INZ_UART3_bluetooth_demo.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: ARM Hex Utility'
-	"C:/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/bin/armhex"  -o "INZ_UART3_bluetooth_demo.hex" $(EXE_OUTPUTS__QUOTED)
+	"F:/Apps/ti/ccsv6/tools/compiler/ti-cgt-arm_15.9.0.STS/bin/armhex"  -o "INZ_UART3_bluetooth_demo.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "TIMER_sending_data.pp" "UART3_conf.pp" "UART3_messages_control.pp" "current_sensing.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
-	-$(RM) "TIMER_sending_data.obj" "UART3_conf.obj" "UART3_messages_control.obj" "current_sensing.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "MotorControl.pp" "TIMER_sending_data.pp" "UART3_conf.pp" "UART3_messages_control.pp" "current_sensing.pp" "main.pp" "tm4c123gh6pm_startup_ccs.pp" 
+	-$(RM) "MotorControl.obj" "TIMER_sending_data.obj" "UART3_conf.obj" "UART3_messages_control.obj" "current_sensing.obj" "main.obj" "tm4c123gh6pm_startup_ccs.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
