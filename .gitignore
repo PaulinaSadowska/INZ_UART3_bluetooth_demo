@@ -1,0 +1,6 @@
+*.cproject
+*.pp
+Debug/current_sensing.obj
+*.map
+Debug/INZ_UART3_bluetooth_demo.out
+*.ccsproject

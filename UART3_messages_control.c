@@ -51,7 +51,7 @@ void UARTDataChangedSubscribe(void(*uartDataChangedEventHandler)(void))
 
 void OnUartDataChangedEvent()
 {
-	UartDataChangedEventHandler();
+		UartDataChangedEventHandler();
 }
 
 void DecodeMessage()

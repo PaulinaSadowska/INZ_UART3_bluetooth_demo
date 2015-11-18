@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v15.9.0                     
 ******************************************************************************
->> Linked Sun Nov 15 22:03:47 2015
+>> Linked Mon Nov 16 12:10:02 2015
 
 OUTPUT FILE NAME:   <INZ_UART3_bluetooth_demo.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000010d9
@@ -118,8 +118,8 @@ section   page    origin      length       input sections
                   2000021c    00000008     (.common:inBuffer)
                   20000224    00000004     (.common:LoadValue)
                   20000228    00000004     (.common:UartDataChangedEventHandler)
-                  2000022c    00000004     (.common:ui32ADC0ValueAvg_CH0)
-                  20000230    00000004     (.common:ui32ADC0ValueAvg_CH1)
+                  2000022c    00000004     (.common:ui32ADC0ValueAvg_CH4)
+                  20000230    00000004     (.common:ui32ADC0ValueAvg_CH5)
                   20000234    00000004     (.common:ui32CurrentMotorLeft)
                   20000238    00000004     (.common:ui32CurrentMotorRight)
                   2000023c    00000004     (.common:ui32VoltageMotorLeft)
@@ -316,8 +316,8 @@ ffffffff  binit
 20000248  messageInProgress             
 20000210  outBuffer                     
 20000200  ui32ADC0Value                 
-2000022c  ui32ADC0ValueAvg_CH0          
-20000230  ui32ADC0ValueAvg_CH1          
+2000022c  ui32ADC0ValueAvg_CH4          
+20000230  ui32ADC0ValueAvg_CH5          
 20000234  ui32CurrentMotorLeft          
 20000238  ui32CurrentMotorRight         
 2000023c  ui32VoltageMotorLeft          
@@ -425,8 +425,8 @@ address   name
 2000021c  inBuffer                      
 20000224  LoadValue                     
 20000228  UartDataChangedEventHandler   
-2000022c  ui32ADC0ValueAvg_CH0          
-20000230  ui32ADC0ValueAvg_CH1          
+2000022c  ui32ADC0ValueAvg_CH4          
+20000230  ui32ADC0ValueAvg_CH5          
 20000234  ui32CurrentMotorLeft          
 20000238  ui32CurrentMotorRight         
 2000023c  ui32VoltageMotorLeft          

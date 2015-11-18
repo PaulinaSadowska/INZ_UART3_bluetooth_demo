@@ -1,1 +1,1 @@
-"./MotorControl.obj" "./TIMER_sending_data.obj" "./UART3_conf.obj" "./UART3_messages_control.obj" "./current_sensing.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "C:/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -l"libc.a" 
+"./MotorControl.obj" "./TIMER_sending_data.obj" "./UART3_conf.obj" "./UART3_messages_control.obj" "./current_sensing.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "F:/Apps/ti/TivaWare_C_Series-2.1.1.71/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -l"libc.a" 
